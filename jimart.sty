@@ -1,0 +1,59 @@
+% jimart.sty
+% 
+% A LaTeX style file compatible with Jim Wood's persnickity formatting preferences.
+
+\RequirePackage{expl3}
+
+\ExplSyntaxOn
+
+%% Define Package Metadata
+\tl_const:Nn \c__coursework_packagename_tl {jimart}
+\tl_const:Nn \c__coursework_packagedate_tl {2020/11/05}
+\tl_const:Nn \c__coursework_packageversion_tl {2020.1}
+\tl_const:Nn \c__coursework_packagedescription_tl {A~ LaTeX~ style~ file~ compatible~ with~ Jim~ Wood's~ persnickity~ formatting.}
+
+\ProvidesExplPackage{\c__coursework_packagename_tl}         % Name
+                    {\c__coursework_packagedate_tl}         % Date
+                    {\c__coursework_packageversion_tl}      % Version
+                    {\c__coursework_packagedescription_tl}  % Description
+
+%% Load Packages
+\RequirePackage[pass]{geometry}
+\RequirePackage{setspace}
+
+
+% Rubric formatting requirements.
+% (1) Double spaced
+\doublespacing
+
+% (2) A reasonable 11 or 12 point font (Times New Roman is ideal; please do not use Cambria)
+\usepackage[12pt]{extsizes}
+% The actual font should be set in the TeX file.
+
+% (3) 1”  margins  on  all  sides.  (Note  that  the  default  in  Word  is  often  1.5”  inches  on  the  left  and right — you will need to change this.) 
+\newgeometry{margin=1in}
+
+% (4) Include page numbers. 
+% Default behavior.
+
+% (5) Please right justify paragraph alignment. 
+% Default behavior.
+
+% (6) Organize your paper into labeled and numbered sections and subsections. 
+% This one's on you.
+
+%% Personal Formatting Preferences
+\makeatletter
+\renewcommand\@maketitle{%
+\hfill
+\begin{center}
+  \let\footnote\thanks 
+  {\Large\bfseries \@title \par }
+  \vskip 1.5em
+  {\large\bfseries \@author \par}
+\end{center}
+\vskip 1em \par
+}
+\makeatother
+
+\ExplSyntaxOff

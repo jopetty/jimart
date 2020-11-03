@@ -1,0 +1,50 @@
+% example.tex
+
+\documentclass{article}
+
+\usepackage{jimart}
+\usepackage{filecontents}
+% Find these biblatex styles at
+% https://github.com/semprag/biblatex-sp-unified
+\usepackage[bibstyle=biblatex-sp-unified,
+            citestyle=sp-authoryear-comp,
+            maxcitenames=3,
+            maxbibnames=99,
+            backend=bibtex]{biblatex}
+
+\usepackage{kantlipsum}
+\usepackage{iftex}
+
+% Check if we can load unicode fonts
+\ifPDFTeX
+  \usepackage{newtxtext, newtxmath}
+\else
+  \usepackage{fontspec}
+  \setmainfont{Doulos SIL} % Download this font from SIL
+\fi
+
+% Examples
+\usepackage{expex}
+\lingset{interpartskip=\baselineskip, 
+	        aboveexskip=0\baselineskip, 
+	        belowexskip=0.3\baselineskip,
+	        aboveglftskip=-2pt,
+	        everygla=,
+          Everyex={\singlespace}}
+
+% Trees
+\usepackage{}
+
+% Bibliography
+\begin{filecontents}[overwrite]{references.bib} 
+  % Put the bibliography here
+\end{filecontents}
+\addbibresource{references.bib}
+
+\title{My Awesome Morphology Paper}
+\author{Jackson Petty}
+
+\begin{document}
+  \maketitle
+  % Paper goes here
+\end{document}
