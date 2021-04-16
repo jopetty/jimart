@@ -7,11 +7,8 @@ a LaTeX file to make formatting your papers a piece of cake.
 
 1. Download (or clone) this repository and unzip the folder. If you're writing 
 your paper on Overleaf, just upload the files to your project directory.
-2. Download the bibliography files `unified.bbx` and `unified.cbx` from the
-[biblatex-sp-unified](https://github.com/semprag/biblatex-sp-unified) repository
-and place them in your project directory.
 3. If you're using XeLaTeX or LuaLaTeX, download an IPA-complete Unicode font.
-For this class, I recommend [Doulos SIL](biblatex-sp-unified).
+For this class, I recommend STIX 2 or Doulos SIL.
 4. Pick an example package. I recommend `expex`, and have included it in the
 template file, but you could use `gb4e` or something else.
 5. Pick a tree package. I recommend `forest`, but you could also use `qtree` or
