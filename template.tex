@@ -4,22 +4,26 @@
 
 \usepackage{jimart}
 \usepackage{filecontents}
-% Find these biblatex styles at
+
+% Taken from Release 3.8.0 of
 % https://github.com/semprag/biblatex-sp-unified
-\usepackage[style=unified,
+\usepackage[bibstyle=biblatex-sp-unified,
+            citestyle=sp-authoryear-comp,
             maxcitenames=3,
             maxbibnames=99,
-            backend=bibtex]{biblatex}
+            backend=biber]{biblatex}
 
 \usepackage{kantlipsum}
 \usepackage{iftex}
 
 % Check if we can load unicode fonts
 \ifPDFTeX
-  \usepackage{newtxtext, newtxmath}
+  \usepackage{stix2}
 \else
   \usepackage{fontspec}
-  \setmainfont{Doulos SIL} % Download this font from SIL
+  \usepackage{unicode-math}
+  \setmainfont{STIX Two Text} % Download this font from SIL
+  \setmathfont{STIX Two math}
 \fi
 
 % Examples
@@ -37,13 +41,29 @@
 % Bibliography
 \begin{filecontents}[overwrite]{references.bib} 
   % Put the bibliography here
+  @book{chomsky,
+    title = {The Minimalist Program},
+    author = {Noam Chomsky},
+    year = {1955},
+    publisher = {MIT Press},
+    address = {Cambridge, MA}
+  }
 \end{filecontents}
 \addbibresource{references.bib}
 
-\title{My Awesome Morphology Paper}
+\title{My Awesome Syntax II Paper}
 \author{Jackson Petty}
 
 \begin{document}
   \maketitle
   % Paper goes here
+  \kant*[1]
+  \citet{chomsky} argues that constructions of the from
+  \ex
+    The test was tough
+  \xe
+  are difficult to analyze. I concur \citep{chomsky}.
+  \kant
+
+  \printbibliography
 \end{document}
